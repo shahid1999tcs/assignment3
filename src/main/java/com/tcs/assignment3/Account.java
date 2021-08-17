@@ -20,6 +20,20 @@ public class Account {
 	private String status;
 	private String account_type;
 	
+	public void deposit(int amount) {
+		String URL = "jdbc:mysql://localhost/assignment";
+		String USER = "root";
+		String PASSWORD = "Nuvelabs123$";
+		
+			try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+					Statement statement = connection.createStatement();){
+				statement.executeUpdate("UPDATE account SET balance=balance+" + amount + " WHERE ID=" + this.ID);
+				
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+	
 	public void withdraw(int amount) {
 		String URL = "jdbc:mysql://localhost/assignment";
 		String USER = "root";
