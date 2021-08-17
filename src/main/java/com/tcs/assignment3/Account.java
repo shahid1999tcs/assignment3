@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.tcs.assignment3;
 
 import java.sql.Connection;
